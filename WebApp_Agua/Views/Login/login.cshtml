@@ -1,0 +1,56 @@
+﻿@model WebApp_Agua.Models.loginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+    <link href="~/Style/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/Scripts_login/login.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+</head>
+<body>
+        <div class="divlogin">
+            @using (Html.BeginForm(null, null, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+                {
+                    <script>
+                        $(function () {
+                            $("#alertError").dialog();
+                        });
+                    </script>
+                    <div id="alertError">
+                        @Html.ValidationSummary(true, "Errores:")
+                    </div>
+                }
+                /* @Html.ValidationSummary(true)*/
+                <h2><span class="entypo-login"></span> Login</h2>
+                <button type="submit" class="submit"><span class="entypo-lock"></span></button>
+                <div>
+                    <span class="entypo-user inputUserIcon"></span>
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "user", @placeholder = "Usuario" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Username, String.Empty, new { @class = "msgErrorUser" })
+                <div>
+                    <span class="entypo-key inputPassIcon"></span>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "pass", @placeholder = "Contraseña" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Password, String.Empty, new { @class = "msgErrorPass" })
+
+                if (ViewBag.Msg != null)
+                {
+                    <p class="mensajeErrorlogin">@ViewBag.Msg</p>
+                }
+              
+            }
+        </div>
+</body>
+</html>

@@ -160,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConfiguracionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +180,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AguaBDModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\loginModel.cs" />
     <Compile Include="Models\Perfile.cs">
       <DependentUpon>AguaBDModel.tt</DependentUpon>
     </Compile>
@@ -238,7 +240,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Scripts_login\login.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Style\login.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -253,10 +257,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Configuracion\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
